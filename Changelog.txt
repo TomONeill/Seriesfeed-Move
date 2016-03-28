@@ -1,0 +1,4 @@
+Seriesfeed Move Changelog
+
+Version 1.0 (28 March 2016)
+First release
