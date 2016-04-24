@@ -10,6 +10,7 @@ Animated screenshot:<BR/>
 
 <A HREF="https://raw.githubusercontent.com/TomONeill/Seriesfeed-Move/master/Changelog.txt">View changelog</A>
 
+<hr />
 Check out other userscripts for Seriesfeed by me:<BR/>
 <ul>
     <li><A HREF="https://github.com/TomONeill/Seriesfeed-Import-Time-Wasted">Import Time Wasted</A></li>
