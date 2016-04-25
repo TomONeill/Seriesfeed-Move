@@ -24,7 +24,7 @@ Check out other userscripts for Seriesfeed by me:<BR/>
 # About userscripts
 This is a userscript which you can use in combination with a browser extension to inject JavaScript (Greasemonkey, Tampermonkey).
 This means new functionality can be added, or bugs can be fixed on (discontinued) websites.<BR />
-DO NOT INSTALL USERSCRIPTS YOU DON'T TRUST! Check always for urls like the @domain tag at the top of a script before installation. Sensitive data (like usernames, passwords, or banktransactions even, may be sent to other sources.
+DO NOT INSTALL USERSCRIPTS YOU DON'T TRUST! Check always for urls like the @domain tag at the top of a script before installation. Sensitive data (like usernames, passwords, or banktransactions even), may be sent to other sources.
 
 # Donate
 If you like my work so much you feel like doing something nice for me, a complete stranger of the internet, you can.<BR />
