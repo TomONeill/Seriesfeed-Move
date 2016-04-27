@@ -18,7 +18,7 @@ With this userscript, you can move the cards on the Seriesfeed frontpage to othe
 Check out other userscripts for Seriesfeed by me:<BR/>
 <ul>
     <li><A HREF="https://github.com/TomONeill/Seriesfeed-Import-Time-Wasted">Import Time Wasted</A></li>
-    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Importer">Import obtained/seen episodes</A></li>
+    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Importer">Import favourites</A></li>
 </ul>
 
 # About userscripts
