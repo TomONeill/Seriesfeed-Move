@@ -5,6 +5,8 @@ Enjoy.
 <BR/><BR/>
 Version <strong>1.0</strong>
 
+<A HREF="https://github.com/TomONeill/Seriesfeed-Move/raw/master/SeriesfeedMove.user.js">INSTALL</A>
+
 # Information
 With this userscript, you can move the cards on the Seriesfeed frontpage to other positions. Just click the title of a card and drag it to another location. It will remember the position because it saves this in your browser storage.
 
