@@ -3,6 +3,7 @@
 // @namespace    http://www.seriesfeed.com
 // @version      1.0
 // @description  Allows you to move and position the cards on the homepage.
+// @updateURL 	 https://github.com/TomONeill/Seriesfeed-Move/raw/master/SeriesfeedMove.user.js
 // @match        http://www.seriesfeed.com/
 // @run-at       document-start
 // @grant        unsafeWindow
