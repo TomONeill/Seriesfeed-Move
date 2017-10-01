@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Seriesfeed Move
-// @namespace    http://www.seriesfeed.com
-// @version      1.0
+// @namespace    https://www.seriesfeed.com
+// @version      1.1
 // @description  Allows you to move and position the cards on the homepage.
 // @updateURL 	 https://github.com/TomONeill/Seriesfeed-Move/raw/master/SeriesfeedMove.user.js
-// @match        http://www.seriesfeed.com/
-// @run-at       document-start
+// @match        https://www.seriesfeed.com/
 // @grant        unsafeWindow
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -40,6 +39,9 @@ $(function() {
     
     function addSortableData(item, type, num) {
         item.addClass("ui-state-default");
+		item.css({
+			'border': '0px' // Revert border from JQuery UI
+		});
         item.attr('id', type + "_" + (num+1));
         var cardContent = item.find('.blog-left');
         cardContent.prepend('<div class="handle" />');
@@ -64,9 +66,6 @@ $(function() {
         handle: '.handle',
         revert: true,
         cursor: "move",
-        start: function(e, ui) {
-            $(this).find('.blog-left').removeClass('animated');
-        },
         update: function (event, ui) {
             var cooked1 = [];
             var cooked2 = [];
