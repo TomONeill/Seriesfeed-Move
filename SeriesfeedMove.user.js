@@ -1,49 +1,48 @@
 // ==UserScript==
 // @name         Seriesfeed Move
 // @namespace    https://www.seriesfeed.com
-// @version      1.1
+// @version      1.2
 // @description  Allows you to move and position the cards on the homepage.
 // @updateURL 	 https://github.com/TomONeill/Seriesfeed-Move/raw/master/SeriesfeedMove.user.js
 // @match        https://www.seriesfeed.com/
 // @grant        unsafeWindow
-// @grant        GM_getValue
-// @grant        GM_setValue
-// @require      http://code.jquery.com/jquery-1.12.2.min.js
-// @require      http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
+// @require      https://code.jquery.com/jquery-3.2.1.min.js
+// @require      https://code.jquery.com/ui/1.12.0/jquery-ui.min.js
 // @author       Tom
 // @copyright    2016+, Tom
 // ==/UserScript==
 /* jshint -W097 */
+/* global $, console */
 'use strict';
 
 $(function() {
     // Identify the columns.
-    var col1 = $(".row .col-md-6:eq(0)");
-    var col2 = $(".row .col-md-6:eq(1)");
-    
+    const col1 = $(".row .col-md-6:eq(0)");
+    const col2 = $(".row .col-md-6:eq(1)");
+
     // Add appropriate classes to the columns.
     col1.addClass("sortable1");
     col2.addClass("sortable2");
-    
+
     // Make cards draggable to either column.
     col1.addClass("connectedSortable");
     col2.addClass("connectedSortable");
-    
+
     // Find each card and add their state + make them serializable.
-    $('.sortable1 > div').each(function(i, obj) {
-        addSortableData($(this), 'i', i);
+    $('.sortable1 > div').each((i, obj) => {
+        addSortableData($(obj), 'i', i);
     });
-    $('.sortable2 > div').each(function(i, obj) {
-        addSortableData($(this), 'j', i);
+    $('.sortable2 > div').each((i, obj) => {
+        addSortableData($(obj), 'j', i);
     });
-    
+
     function addSortableData(item, type, num) {
         item.addClass("ui-state-default");
 		item.css({
 			'border': '0px' // Revert border from JQuery UI
 		});
         item.attr('id', type + "_" + (num+1));
-        var cardContent = item.find('.blog-left');
+        const cardContent = item.find('.blog-left');
         cardContent.prepend('<div class="handle" />');
         item.find('.handle').css({
             'padding-bottom': '75px',
@@ -53,13 +52,13 @@ $(function() {
             'right': '0'
         });
     }
-    
+
     // Load the cards in the right order.
     restoreOrder();
-    
+
     // Change cursor on card's handle.
     $(".handle").css('cursor', 'move');
-    
+
     // Actual sorting.
     $(".sortable1, .sortable2").sortable({
         connectWith: ".connectedSortable",
@@ -67,37 +66,39 @@ $(function() {
         revert: true,
         cursor: "move",
         update: function (event, ui) {
-            var cooked1 = [];
-            var cooked2 = [];
-            $(".sortable1").each(function(index, domEle) {
+            const cooked1 = [];
+            const cooked2 = [];
+            $(".sortable1").each((index, domEle) => {
                     cooked1[index] = $(domEle).sortable('toArray', {key: 'i', attribute: 'id'});
                 }
             );
-            $(".sortable2").each(function(index, domEle) {
+            $(".sortable2").each((index, domEle) => {
                     cooked2[index] = $(domEle).sortable('toArray', {key: 'j', attribute: 'id'});
                 }
             );
-            GM_setValue("blockOrder1", cooked1.join('|'));
-            GM_setValue("blockOrder2", cooked2.join('|'));
+            localStorage.setItem("blockOrder1", cooked1.join('|'));
+            localStorage.setItem("blockOrder2", cooked2.join('|'));
         }
     });
-    
+
     function restoreOrder() {
-        var order1 = GM_getValue("blockOrder1");
-        var order2 = GM_getValue("blockOrder2");
-        if (!order1 || !order2) return;
-        
-        var SavedID1 = order1.split('|');
-        var SavedID2 = order2.split('|');
-        
-        for (var u=0, ul=SavedID1.length; u < ul; u++) {
+        const order1 = localStorage.getItem("blockOrder1");
+        const order2 = localStorage.getItem("blockOrder2");
+        if (!order1 || !order2) {
+            return;
+        }
+
+        const SavedID1 = order1.split('|');
+        const SavedID2 = order2.split('|');
+
+        for (let u = 0, ul=SavedID1.length; u < ul; u++) {
             SavedID1[u] = SavedID1[u].split(',');
         }
-        for (var u=0, ul=SavedID2.length; u < ul; u++) {
+        for (let u = 0, ul=SavedID2.length; u < ul; u++) {
             SavedID2[u] = SavedID2[u].split(',');
         }
-        for (var Scolumn=0, n = SavedID1.length; Scolumn < n; Scolumn++) {
-            for (var Sitem=0, m = SavedID1[Scolumn].length; Sitem < m; Sitem++) {
+        for (let Scolumn = 0, n = SavedID1.length; Scolumn < n; Scolumn++) {
+            for (let Sitem = 0, m = SavedID1[Scolumn].length; Sitem < m; Sitem++) {
                 if (SavedID1[Scolumn][Sitem].indexOf("i") >= 0) {
                     $(".sortable1").eq(Scolumn).append($(".sortable1").children("#" + SavedID1[Scolumn][Sitem]));
                 } else {
@@ -105,14 +106,13 @@ $(function() {
                 }
             }
         }
-        for (var Scolumn=0, n = SavedID2.length; Scolumn < n; Scolumn++) {
-            for (var Sitem=0, m = SavedID2[Scolumn].length; Sitem < m; Sitem++) {
+        for (let Scolumn = 0, n = SavedID2.length; Scolumn < n; Scolumn++) {
+            for (let Sitem = 0, m = SavedID2[Scolumn].length; Sitem < m; Sitem++) {
                 if (SavedID2[Scolumn][Sitem].indexOf("i") >= 0) {
                     $(".sortable2").eq(Scolumn).append($(".sortable1").children("#" + SavedID2[Scolumn][Sitem]));
                 } else {
                     $(".sortable2").eq(Scolumn).append($(".sortable2").children("#" + SavedID2[Scolumn][Sitem]));
                 }
-                
             }
         }
     }
