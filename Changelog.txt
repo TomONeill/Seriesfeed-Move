@@ -1,5 +1,9 @@
 Seriesfeed Move Changelog
 
+Version 1.2 (15 November 2017)
+Traded GM_getValue and GM_setValue for the browser's local storage.
+Updated jQuery libraries.
+
 Version 1.1 (02 October 2017)
 Script now works with Seriesfeed v2.5.
 
