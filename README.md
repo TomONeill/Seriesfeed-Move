@@ -11,7 +11,7 @@ Version <strong>1.2</strong>
 With this userscript, you can move the cards on the Seriesfeed frontpage to other positions. Just click the title of a card and drag it to another location. It will remember the position because it saves this in your browser storage.
 
 # Screenshots
-![Version 1.2](https://raw.githubusercontent.com/TomONeill/Seriesfeed-Move/master/screenshots/1.0.gif "Version 1.2")
+<img src="https://raw.githubusercontent.com/TomONeill/Seriesfeed-Move/master/Screenshots/1.0.gif" />
 
 # Changelog
 <A HREF="https://raw.githubusercontent.com/TomONeill/Seriesfeed-Move/master/Changelog.txt">View changelog</A>
