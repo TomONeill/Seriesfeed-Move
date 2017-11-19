@@ -19,10 +19,9 @@ With this userscript, you can move the cards on the Seriesfeed frontpage to othe
 # Other userscripts
 Check out other userscripts for Seriesfeed by me:<BR/>
 <ul>
-    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Import-Time-Wasted">Import Time Wasted</A></li>
-    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Importer">Import favourites</A></li>
-    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Season-Separator">Season Separator</A></li>
-	<li><A HREF="https://github.com/TomONeill/seriesfeed-episode-inverter">Episode Inverter</A></li>
+    <li><A HREF="https://github.com/TomONeill/seriesfeed-transporter">Seriesfeed Transporter</A>: Import and export your favourites and time wasted.</li>
+    <li><A HREF="https://github.com/TomONeill/seriesfeed-episode-inverter">Seriesfeed Episode Inverter</A>: Choose whether episodes are sorted ascending or descending.</li>
+    <li><A HREF="https://github.com/TomONeill/Seriesfeed-Season-Separator">Seriesfeed Season Separator</A>: Draws a thick line between seasons.</li>
 </ul>
 
 # Donate
